@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Filling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #flashcard {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #question {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the navbar container */
+        .navbar {
+            /* Use flexbox to layout the navbar items horizontally */
+            display: flex;
+            /* Align the navbar items vertically */
+            align-items: center;
+            /* Set the background color of the navbar */
+            background-color: #333;
+            /* Add some padding around the navbar */
+            padding: 10px;
+        }
+
+        /* Style the navbar links */
+        .navbar a {
+            /* Remove the default underline from the links */
+            text-decoration: none;
+            /* Set the color of the links */
+            color: white;
+            /* Add some margin around the links */
+            margin: 10px;
+        }
+
+        /* Change the color of the links on hover */
+        .navbar a:hover {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Flashcard Filling</h1>
+    </header>
+    <!-- The navbar container -->
+    <div class="navbar">
+        <!-- The navbar content -->
+        <a href="#home">Home</a>
+        <a href="#create">Create</a>
+        <a href="#read">Read</a>
+        <a href="#update">Update</a>
+        <a href="#delete">Delete</a>
+    </div>
+
+    <!-- The CSS code -->
+
+
+
+    <main>
+        <div id="flashcard">
+            <p id="question"></p>
+            <input type="text" id="answerInput">
+            <button onclick="checkAnswer()">Check Answer</button>
+            <p id="correctAnswer" style="display: none;"></p>
+            <p id="personalConnection" style="display: none;"></p>
+            <button onclick="nextFlashcard()">Next</button>
+            <button onclick="previousFlashcard()">Previous</button>
+        </div>
+        <div id="numberButtons">
+            <button onclick="goToFlashcard(0)">1</button>
+            <button onclick="goToFlashcard(1)">2</button>
+            <button onclick="goToFlashcard(2)">3</button>
+            <button onclick="goToFlashcard(3)">4</button>
+            <button onclick="goToFlashcard(4)">5</button>
+        </div>
+    </main>
+
+    <script>
+        var flashcards = [
+            {
+                question: "What is the capital of France?",
+                answer: "Paris",
+                personalConnection: "I visited Paris in 2015 and loved the Eiffel Tower."
+            },
+            {
+                question: "Who wrote 'To Kill a Mockingbird'?",
+                answer: "Harper Lee",
+                personalConnection: "'To Kill a Mockingbird' was the first novel I read in high school."
+            },
+            {
+                question: "What is the square root of 144?",
+                answer: "12",
+                personalConnection: "I remember learning about square roots in my 8th grade math class."
+            }
+        ];
+
+        var currentFlashcardIndex = 0;
+
+        function displayFlashcard() {
+            document.getElementById('question').innerText = "QUESTION: " + flashcards[currentFlashcardIndex].question;
+            document.getElementById('correctAnswer').innerText = "ANSWER: " + flashcards[currentFlashcardIndex].answer;
+            document.getElementById('personalConnection').innerText = "PERSONAL CONNECTION: " + flashcards[currentFlashcardIndex].personalConnection;
+            document.getElementById('correctAnswer').style.display = 'none';
+            document.getElementById('personalConnection').style.display = 'none';
+            document.getElementById('answerInput').value = '';
+        }
+
+        function checkAnswer() {
+            document.getElementById('personalConnection').style.display = 'block';
+            document.getElementById('correctAnswer').style.display = 'block';
+        }
+
+        function nextFlashcard() {
+            currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcards.length;
+            displayFlashcard();
+        }
+
+        function previousFlashcard() {
+            currentFlashcardIndex = (currentFlashcardIndex - 1 + flashcards.length) % flashcards.length;
+            displayFlashcard();
+        }
+
+        function goToFlashcard(index) {
+            if (index < flashcards.length) {
+                currentFlashcardIndex = index;
+                displayFlashcard();
+            } else {
+                alert("No flashcard exists for this number.");
+            }
+        }
+
+
+        displayFlashcard();
+    </script>
+</body>
+
+</html>

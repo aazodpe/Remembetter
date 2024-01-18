@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light gray background */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF; /* Blue button */
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Flashcard styling */
+        .flashcard {
+            background-color: #f8f9fa; /* Lighter gray for flashcards */
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Display a prompt when the user opens the website
+        alert("Make sure to write the answer in an informative sense. If your answer looks like a Wikipedia article, you have failed.");
+    </script>
+
+    <header>
+        <h1>Flashcard Website</h1>
+    </header>
+    <div class="navbar">
+        <!-- The navbar content -->
+        <a href="#home">Home</a>
+        <a href="#create">Create</a>
+        <a href="#read">Read</a>
+        <a href="#update">Update</a>
+        <a href="#delete">Delete</a>
+    </div>
+    <main>
+        <form id="flashcardForm">
+            <label for="question">Question:</label>
+            <input type="text" id="question" name="question" required>
+
+            <label for="answer">Answer:</label>
+            <textarea id="answer" name="answer" rows="4" required></textarea>
+
+            <!-- Additional input box for personal connection -->
+            <label for="personalConnection">Personal Connection to remember answer:</label>
+            <textarea id="personalConnection" name="personalConnection" rows="2"></textarea>
+
+            <button type="button" onclick="createFlashcard()">Create Flashcard</button>
+        </form>
+
+        <!-- Display Flashcards -->
+        <div id="flashcards"></div>
+    </main>
+
+    <script>
+        function createFlashcard() {
+            // Get values from the form
+            var question = document.getElementById('question').value;
+            var answer = document.getElementById('answer').value;
+            var personalConnection = document.getElementById('personalConnection').value;
+
+            // Create a new flashcard element
+            var flashcard = document.createElement('div');
+            flashcard.className = 'flashcard';
+            flashcard.innerHTML = '<strong>Question:</strong> ' + question + '<br><strong>Answer:</strong> ' + answer + '<br><strong>Personal Connection:</strong> ' + personalConnection;
+
+            // Append the flashcard to the flashcards container
+            document.getElementById('flashcards').appendChild(flashcard);
+
+            // Clear the form
+            document.getElementById('flashcardForm').reset();
+        }
+    </script>
+
+</body>
+</html>
