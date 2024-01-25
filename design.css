@@ -6,8 +6,9 @@ body {
 }
 
 .container{
-    align-content: center;
-    justify-content: center;
+
+    margin: auto;
+   
 }
 
 header {
@@ -108,14 +109,18 @@ button:hover {
 
 .card {
     /* Add some margin around the card */
-    margin: 20px;
+    margin: auto;
+    
     /* Add some box shadow to the card */
+    border-radius: 20px;
+    background-color: #83C0C1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
     /* Set the background color of the card header */
-    background-color: #007BFF;
+    background-color: #6962AD;
+    border-radius: 20px;
     /* Blue */
     /* Set the color of the card title */
     color: #fff;
@@ -124,6 +129,10 @@ button:hover {
 .card-body {
     /* Add some padding around the card body */
     padding: 20px;
+}
+
+.card-title {
+    text-align: center;
 }
 
 .form-group {

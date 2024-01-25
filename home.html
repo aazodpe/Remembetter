@@ -8,10 +8,7 @@
 </head>
 <body>
 
-    <script>
-        // Display a prompt when the user opens the website
-        alert("Make sure to write the answer in an informative sense. If your answer looks like a Wikipedia article, you have failed.");
-    </script>
+
 
     <header>
         <h1>rememb(ett)er</h1>
@@ -20,20 +17,24 @@
     <div class="navbar">
         <!-- The navbar content -->
         <a href="home.html">Home</a>
+        <a href="flashfilling.html">Read</a>
         <a href="update.html">Update</a>
         <a href="delete.html">Delete</a>
-        <a href="flashfilling.html">Read</a>
+        <div style="float: right;">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
     </div>
     <main>
         <form id="flashcardForm">
-            <label for="question">Question:</label>
+            <label for="question">What's the topic?</label>
             <input type="text" id="question" name="question" required>
 
-            <label for="answer">Answer:</label>
+            <label for="answer">What would you like to remember about it?</label>
             <textarea id="answer" name="answer" rows="4" required></textarea>
 
             <!-- Additional input box for personal connection -->
-            <label for="personalConnection">Personal Connection to remember answer:</label>
+            <label for="personalConnection">What's your personal connection to this topic?</label>
             <textarea id="personalConnection" name="personalConnection" rows="2"></textarea>
 
             <button type="button" onclick="createFlashcard()">Create Flashcard</button>
