@@ -5,7 +5,16 @@ body {
     background-color: #96E9C6; /* Light gray background */
 }
 
+.container{
+    align-content: center;
+    justify-content: center;
+}
+
 header {
+    background-image: url('blackback.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     background-color: #6C22A6;
     color: #fff;
     padding: 1em;
@@ -83,4 +92,59 @@ button:hover {
 /* Change the color of the links on hover */
 .navbar a:hover {
     color: yellow;
+}
+
+
+/* Login page styling */
+.login-page {
+    /* Set the height of the login page to 100% of the viewport */
+    height: 100vh;
+    /* Use flexbox to center the login page vertically */
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    /* Add some margin around the card */
+    margin: 20px;
+    /* Add some box shadow to the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    /* Set the background color of the card header */
+    background-color: #007BFF;
+    /* Blue */
+    /* Set the color of the card title */
+    color: #fff;
+}
+
+.card-body {
+    /* Add some padding around the card body */
+    padding: 20px;
+}
+
+.form-group {
+    /* Add some margin around the form group */
+    margin-bottom: 15px;
+}
+
+.form-control {
+    /* Set the height of the input fields */
+    height: 40px;
+    /* Set the border color of the input fields */
+    border-color: #ced4da;
+}
+
+.btn {
+    /* Set the width of the button */
+    width: 100%;
+    /* Set the height of the button */
+    height: 40px;
+}
+
+.btn:hover {
+    /* Set the background color of the button on hover */
+    background-color: #0056b3;
+    /* Darker blue */
 }
