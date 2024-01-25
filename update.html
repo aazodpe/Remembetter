@@ -4,92 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Flashcards</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0; /* Light gray background */
-        }
+    <link rel="stylesheet" href="design.css">
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
 
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff; /* White background */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        form {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #007BFF; /* Blue button */
-            color: #fff;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-        }
-
-        /* Flashcard styling */
-        .flashcard {
-            background-color: #f8f9fa; /* Lighter gray for flashcards */
-            padding: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Navbar styling */
-        .navbar {
-            /* Use flexbox to layout the navbar items horizontally */
-            display: flex;
-            /* Align the navbar items vertically */
-            align-items: center;
-            /* Set the background color of the navbar */
-            background-color: #333;
-            /* Add some padding around the navbar */
-            padding: 10px;
-        }
-
-        /* Style the navbar links */
-        .navbar a {
-            /* Remove the default underline from the links */
-            text-decoration: none;
-            /* Set the color of the links */
-            color: white;
-            /* Add some margin around the links */
-            margin: 10px;
-        }
-
-        /* Change the color of the links on hover */
-        .navbar a:hover {
-            color: yellow;
-        }
-    </style>
 </head>
 <body>
 
@@ -98,20 +15,21 @@
         alert("Make sure to write the answer in an informative sense. If your answer looks like a Wikipedia article, you have failed.");
     </script>
 
+    <header>
+        <h1>Update Flashcards</h1>
+    </header>
+    
     <!-- The navbar container -->
     <div class="navbar">
         <!-- The navbar content -->
-        <a href="index.html">Home</a>
-        <a href="create.html">Create</a>
+        <a href="home.html">Home</a>
         <a href="#update">Update</a>
         <a href="delete.html">Delete</a>
         <a href="flashfilling.html">Read</a>
 
     </div>
 
-    <header>
-        <h1>Update Flashcards</h1>
-    </header>
+
 
     <main>
         <form id="flashcardForm">
