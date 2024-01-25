@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Filling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #flashcard {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #question {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the navbar container */
+        .navbar {
+            /* Use flexbox to layout the navbar items horizontally */
+            display: flex;
+            /* Align the navbar items vertically */
+            align-items: center;
+            /* Set the background color of the navbar */
+            background-color: #333;
+            /* Add some padding around the navbar */
+            padding: 10px;
+        }
+
+        /* Style the navbar links */
+        .navbar a {
+            /* Remove the default underline from the links */
+            text-decoration: none;
+            /* Set the color of the links */
+            color: white;
+            /* Add some margin around the links */
+            margin: 10px;
+        }
+
+        /* Change the color of the links on hover */
+        .navbar a:hover {
+            color: yellow;
+        }
+
+        /* Login page styling */
+        .login-page {
+            /* Set the height of the login page to 100% of the viewport */
+            height: 100vh;
+            /* Use flexbox to center the login page vertically */
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            /* Add some margin around the card */
+            margin: 20px;
+            /* Add some box shadow to the card */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            /* Set the background color of the card header */
+            background-color: #007BFF;
+            /* Blue */
+            /* Set the color of the card title */
+            color: #fff;
+        }
+
+        .card-body {
+            /* Add some padding around the card body */
+            padding: 20px;
+        }
+
+        .form-group {
+            /* Add some margin around the form group */
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            /* Set the height of the input fields */
+            height: 40px;
+            /* Set the border color of the input fields */
+            border-color: #ced4da;
+        }
+
+        .btn {
+            /* Set the width of the button */
+            width: 100%;
+            /* Set the height of the button */
+            height: 40px;
+        }
+
+        .btn:hover {
+            /* Set the background color of the button on hover */
+            background-color: #0056b3;
+            /* Darker blue */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Flashcard Filling</h1>
+    </header>
+    <!-- The navbar container -->
+    <div class="navbar">
+        <!-- The navbar content -->
+
+        <a href="create.html">Create</a>
+        <a href="read.html">Read</a>
+        <a href="update.html">Update</a>
+        <a href="delete.html">Delete</a>
+    </div>
+
+    <!-- The CSS code -->
+
+
+
+    <div class="login-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Sign Up</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Signup</button>
+                                </div>
+                                <div class="form-group">
+                                    <p class="text-center"><a href="#">Forgot your password?</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Check if username includes only alphanumeric characters
+            for (var i = 0; i < username.length; i++) {
+                if (!('a' <= username[i] && username[i] <= 'z') && !('A' <= username[i] && username[i] <= 'Z') && !('0' <= username[i] && username[i] <= '9')) {
+                    alert('Username should only include alphanumeric characters.');
+                    return false;
+                }
+            }
+
+            // Check if username length is below 256 characters
+            if (username.length > 256) {
+                alert('Username should be less than 256 characters.');
+                return false;
+            }
+
+            // Check that password contains one special character, at least one number and at least one alphanumeric character
+            var hasSpecialChar = false, hasNumber = false, hasAlpha = false;
+            for (var i = 0; i < password.length; i++) {
+                if ('a' <= password[i] && password[i] <= 'z' || 'A' <= password[i] && password[i] <= 'Z') {
+                    hasAlpha = true;
+                } else if ('0' <= password[i] && password[i] <= '9') {
+                    hasNumber = true;
+                } else {
+                    hasSpecialChar = true;
+                }
+            }
+
+            if (!hasSpecialChar || !hasNumber || !hasAlpha || password.length <= 5) {
+                alert('Password should contain at least one special character, one number, one alphanumeric character, and should be more than 5 characters long.');
+                return false;
+            }
+
+            // If all validations pass, submit the form
+            this.submit();
+        });
+
+
+    </script>
+</body>
+
+</html>
