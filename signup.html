@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcard Filling</title>
     <link rel="stylesheet" href="design.css">
-    
+
 </head>
 
 <body>
@@ -87,7 +87,7 @@
     <script>
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault();
-
+    
             var firstName = document.getElementById('firstName').value;
             var lastName = document.getElementById('lastName').value;
             var phoneNumber = document.getElementById('phoneNumber').value;
@@ -95,54 +95,36 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
             var confirmPassword = document.getElementById('confirmPassword').value;
-
-            // Check if first name and last name are not empty
-            if (firstName.trim() === '' || lastName.trim() === '') {
-                alert('Please enter your first name and last name.');
+    
+            // Check if first name and last name contain only alphabets
+            var nameRegex = /^[A-Za-z]+$/;
+            if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
+                alert('First name and last name should contain only alphabets.');
                 return false;
             }
-
-            // Check if username includes only alphanumeric characters
-            for (var i = 0; i < username.length; i++) {
-                if (!('a' <= username[i] && username[i] <= 'z') && !('A' <= username[i] && username[i] <= 'Z') && !('0' <= username[i] && username[i] <= '9')) {
-                    alert('Username should only include alphanumeric characters.');
-                    return false;
-                }
-            }
-
-            // Check if username length is below 256 characters
-            if (username.length > 256) {
-                alert('Username should be less than 256 characters.');
+    
+            // Check email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Invalid email format.');
                 return false;
             }
-
-            // Check that password contains one special character, at least one number and at least one alphanumeric character
-            var hasSpecialChar = false, hasNumber = false, hasAlpha = false;
-            for (var i = 0; i < password.length; i++) {
-                if ('a' <= password[i] && password[i] <= 'z' || 'A' <= password[i] && password[i] <= 'Z') {
-                    hasAlpha = true;
-                } else if ('0' <= password[i] && password[i] <= '9') {
-                    hasNumber = true;
-                } else {
-                    hasSpecialChar = true;
-                }
-            }
-
-            if (!hasSpecialChar || !hasNumber || !hasAlpha || password.length <= 5) {
-                alert('Password should contain at least one special character, one number, one alphanumeric character, and should be more than 5 characters long.');
-                return false;
-            }
-
-            // Check if passwords match
+    
+            // Check that password and confirm password match
             if (password !== confirmPassword) {
                 alert('Passwords do not match.');
                 return false;
             }
-
+    
+            // Display an error message if any other validation fails
+            alert('Please enter valid data.');
+    
             // If all validations pass, submit the form
             this.submit();
         });
     </script>
+    
+    
 </body>
 
 </html>
