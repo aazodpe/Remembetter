@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Filling</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="create.html"> <!-- Link to the Home page -->
+                <img src="remembetter(logo).png" alt="RememBetter Logo"> <!-- Logo Image -->
+            </a>
+        </div>
+        
+        <h2>Flashcard Filling</h2>
+    </header>
+    <!-- The navbar container -->
+    <div class="navbar">
+        <!-- The navbar content -->
+        
+        <a href="create.html">Home</a>
+        <a href="flashfilling.html">Read</a>
+        <a href="update.html">Update</a>
+        <a href="delete.html">Delete</a>
+
+        <div style="float: right;">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
+    </div>
+
+    <!-- The CSS code -->
+
+
+
+    <main>
+        <div id="flashcard">
+            <p id="question"></p>
+            <input type="text" id="answerInput">
+            <button onclick="checkAnswer()">Check Answer</button>
+            <p id="correctAnswer" style="display: none;"></p>
+            <p id="personalConnection" style="display: none;"></p>
+            <button onclick="nextFlashcard()">Next</button>
+            <button onclick="previousFlashcard()">Previous</button>
+        </div>
+        <div id="numberButtons">
+            <button onclick="goToFlashcard(0)">1</button>
+            <button onclick="goToFlashcard(1)">2</button>
+            <button onclick="goToFlashcard(2)">3</button>
+        </div>
+    </main>
+
+    <script>
+        var flashcards = [
+            {
+                question: "What is the capital of France?",
+                answer: "Paris",
+                personalConnection: "I visited Paris in 2015 and loved the Eiffel Tower."
+            },
+            {
+                question: "Who wrote 'To Kill a Mockingbird'?",
+                answer: "Harper Lee",
+                personalConnection: "'To Kill a Mockingbird' was the first novel I read in high school."
+            },
+            {
+                question: "What is the square root of 144?",
+                answer: "12",
+                personalConnection: "I remember learning about square roots in my 8th grade math class."
+            }
+        ];
+
+        var currentFlashcardIndex = 0;
+
+        function displayFlashcard() {
+            document.getElementById('question').innerText = "QUESTION: " + flashcards[currentFlashcardIndex].question;
+            document.getElementById('correctAnswer').innerText = "ANSWER: " + flashcards[currentFlashcardIndex].answer;
+            document.getElementById('personalConnection').innerText = "PERSONAL CONNECTION: " + flashcards[currentFlashcardIndex].personalConnection;
+            document.getElementById('correctAnswer').style.display = 'none';
+            document.getElementById('personalConnection').style.display = 'none';
+            document.getElementById('answerInput').value = '';
+        }
+
+        function checkAnswer() {
+            document.getElementById('personalConnection').style.display = 'block';
+            document.getElementById('correctAnswer').style.display = 'block';
+        }
+
+        function nextFlashcard() {
+            currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcards.length;
+            displayFlashcard();
+        }
+
+        function previousFlashcard() {
+            currentFlashcardIndex = (currentFlashcardIndex - 1 + flashcards.length) % flashcards.length;
+            displayFlashcard();
+        }
+
+        function goToFlashcard(index) {
+            if (index < flashcards.length) {
+                currentFlashcardIndex = index;
+                displayFlashcard();
+            } else {
+                alert("No flashcard exists for this number.");
+            }
+        }
+
+
+        displayFlashcard();
+    </script>
+</body>
+
+</html>

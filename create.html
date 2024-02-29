@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rememBetter</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="create.html"> <!-- Link to the Home page -->
+                <img src="remembetter(logo).png" alt="RememBetter Logo"> <!-- Logo Image -->
+            </a>
+        </div>
+
+    </header>
+    <div class="navbar">
+        <!-- The navbar content -->
+        <a href="create.html">Home</a>
+        <a href="flashfilling.html">Read</a>
+        <a href="update.html">Update</a>
+        <a href="delete.html">Delete</a>
+        <div style="float: right;">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
+    </div>
+    <main>
+        <form id="flashcardForm">
+            <label for="question">What's the topic?</label>
+            <input type="text" id="question" name="question" required>
+
+            <label for="answer">What would you like to remember about it?</label>
+            <textarea id="answer" name="answer" rows="4" required></textarea>
+
+            <!-- Additional input box for personal connection -->
+            <label for="personalConnection">What's your personal connection to this topic?</label>
+            <textarea id="personalConnection" name="personalConnection" rows="2"></textarea>
+
+            <button type="button" onclick="createFlashcard()">Create Flashcard</button>
+        </form>
+
+        <!-- Display Flashcards -->
+        <div id="flashcards"></div>
+    </main>
+
+    <script>
+        function createFlashcard() {
+            // Get values from the form
+            var question = document.getElementById('question').value;
+            var answer = document.getElementById('answer').value;
+            var personalConnection = document.getElementById('personalConnection').value;
+
+            // Create a new flashcard element
+            var flashcard = document.createElement('div');
+            flashcard.className = 'flashcard';
+            flashcard.innerHTML = '<strong>Question:</strong> ' + question + '<br><strong>Answer:</strong> ' + answer + '<br><strong>Personal Connection:</strong> ' + personalConnection;
+
+            // Append the flashcard to the flashcards container
+            document.getElementById('flashcards').appendChild(flashcard);
+
+            // Clear the form
+            document.getElementById('flashcardForm').reset();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Flashcards</title>
+    <link rel="stylesheet" href="design.css">
+
+</head>
+
+<body>
+
+
+
+    <header>
+        <div class="logo-container">
+            <a href="create.html"> <!-- Link to the Home page -->
+                <img src="remembetter(logo).png" alt="RememBetter Logo"> <!-- Logo Image -->
+            </a>
+        </div>
+        <h2>Delete</h2>
+    </header>
+    <!-- The navbar container -->
+    <div class="navbar">
+        <!-- The navbar content -->
+        <a href="create.html">Home</a>
+        <a href="flashfilling.html">Read</a>
+        <a href="update.html">Update</a>
+        <a href="delete.html">Delete</a>
+        <div style="float: right;">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
+    </div>
+
+
+
+    <main>
+        <!-- Display Flashcards -->
+        <div id="flashcards"></div>
+    </main>
+
+    <script>
+        // An array to store the flashcards
+        var flashcards = [];
+
+        function displayFlashcards() {
+            // Clear the flashcards container
+            document.getElementById('flashcards').innerHTML = '';
+
+            // Loop through the flashcards array
+            for (var i = 0; i < flashcards.length; i++) {
+                // Get the current flashcard
+                var flashcard = flashcards[i];
+
+                // Create a new flashcard element
+                var flashcardElement = document.createElement('div');
+                flashcardElement.className = 'flashcard';
+                flashcardElement.innerHTML = '<strong>Question:</strong> ' + flashcard.question + '<br><strong>Answer:</strong> ' + flashcard.answer + '<br><strong>Personal Connection:</strong> ' + flashcard.personalConnection + '<br><button onclick="deleteFlashcard(' + i + ')">Delete</button>';
+
+                // Append the flashcard element to the flashcards container
+                document.getElementById('flashcards').appendChild(flashcardElement);
+            }
+        }
+
+        function deleteFlashcard(index) {
+            // Confirm the deletion
+            if (confirm('Are you sure you want to delete this flashcard?')) {
+                // Remove the flashcard from the array
+                flashcards.splice(index, 1);
+
+                // Display the flashcards
+                displayFlashcards();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

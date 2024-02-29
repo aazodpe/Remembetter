@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Flashcard Filling</title>
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="create.html"> <!-- Link to the Home page -->
+                <img src="remembetter(logo).png" alt="RememBetter Logo"> <!-- Logo Image -->
+            </a>
+        </div>
+        <h2>Login</h2>
+    </header>
+    <!-- The navbar container -->
+    <div class="navbar">
+        <!-- The navbar content -->
+        <a href="create.html">Home</a>
+        <a href="flashfilling.html">Read</a>
+        <a href="update.html">Update</a>
+        <a href="delete.html">Delete</a>
+        <div style="float: right;">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
+    </div>
+
+    <!-- The CSS code -->
+    
+
+
+    <div class="login-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Log In</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Log In</button>
+                                </div>
+                                <div class="form-group">
+                                    <a href="signup.html">Sign Up</a>
+                                    <p class="text-center"><a href="#">Forgot your password?</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Check if username includes only alphanumeric characters
+            for (var i = 0; i < username.length; i++) {
+                if (!('a' <= username[i] && username[i] <= 'z') && !('A' <= username[i] && username[i] <= 'Z') && !('0' <= username[i] && username[i] <= '9')) {
+                    alert('Username should only include alphanumeric characters.');
+                    return false;
+                }
+            }
+
+            // Check if username length is below 256 characters
+            if (username.length > 256) {
+                alert('Username should be less than 256 characters.');
+                return false;
+            }
+
+            // Check that password contains one special character, at least one number and at least one alphanumeric character
+            var hasSpecialChar = false, hasNumber = false, hasAlpha = false;
+            for (var i = 0; i < password.length; i++) {
+                if ('a' <= password[i] && password[i] <= 'z' || 'A' <= password[i] && password[i] <= 'Z') {
+                    hasAlpha = true;
+                } else if ('0' <= password[i] && password[i] <= '9') {
+                    hasNumber = true;
+                } else {
+                    hasSpecialChar = true;
+                }
+            }
+
+            if (!hasSpecialChar || !hasNumber || !hasAlpha || password.length <= 5) {
+                alert('Password should contain at least one special character, one number, one alphanumeric character, and should be more than 5 characters long.');
+                return false;
+            }
+
+            // If all validations pass, submit the form
+            this.submit();
+        });
+
+
+    </script>
+</body>
+
+</html>

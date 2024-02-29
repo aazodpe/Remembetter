@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Flashcards</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+
+
+
+    <header>
+        <div class="logo-container">
+            <a href="create.html"> <!-- Link to the Home page -->
+                <img src="remembetter(logo).png" alt="RememBetter Logo"> <!-- Logo Image -->
+            </a>
+        </div>
+        <h2>Update Flashcards</h2>
+    </header>
+    
+    <!-- The navbar container -->
+    <div class="navbar">
+        <!-- The navbar content -->
+        <a href="create.html">Home</a>
+        <a href="flashfilling.html">Read</a>
+        <a href="update.html">Update</a>
+        <a href="delete.html">Delete</a>
+        <div style="float: right;">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
+    </div>
+
+
+
+    <main>
+        <form id="flashcardForm">
+            <label for="question">What's the topic?</label>
+            <input type="text" id="question" name="question" required>
+
+            <label for="answer">What would you like to remember about it?</label>
+            <textarea id="answer" name="answer" rows="4" required></textarea>
+
+            <!-- Additional input box for personal connection -->
+            <label for="personalConnection">What's your personal connection to this topic?</label>
+            <textarea id="personalConnection" name="personalConnection" rows="2"></textarea>
+
+            <button type="button" onclick="createFlashcard()">Create Flashcard</button>
+        </form>
+
+        <!-- Display Flashcards -->
+        <div id="flashcards"></div>
+    </main>
+
+    <script>
+        // An array to store the flashcards
+        var flashcards = [];
+
+        function displayFlashcards() {
+            // Clear the flashcards container
+            document.getElementById('flashcards').innerHTML = '';
+
+            // Loop through the flashcards array
+            for (var i = 0; i < flashcards.length; i++) {
+                // Get the current flashcard
+                var flashcard = flashcards[i];
+
+                // Create a new flashcard element
+                var flashcardElement = document.createElement('div');
+                flashcardElement.className = 'flashcard';
+                flashcardElement.innerHTML = '<strong>Question:</strong> ' + flashcard.question + '<br><strong>Answer:</strong> ' + flashcard.answer + '<br><strong>Personal Connection:</strong> ' + flashcard.personalConnection + '<br><button onclick="editFlashcard(' + i + ')">Edit</button>';
+
+                // Append the flashcard element to the flashcards container
+                document.getElementById('flashcards').appendChild(flashcardElement);
+            }
+        }
+
+        function editFlashcard(index) {
+            // Get the flashcard to edit
+            var flashcard = flashcards[index];
+
+            // Populate the form with the current values
+            document.getElementById('question').value = flashcard.question;
+            document.getElementById('answer').value = flashcard.answer;
+            document.getElementById('personalConnection').value = flashcard.personalConnection;
+
+            // Set the index of the flashcard as a data attribute of the update button
+            document.querySelector('button[onclick="updateFlashcard()"]').setAttribute('data-index', index);
+        }
+
+        function updateFlashcard() {
+            // Get the index of the flashcard to update
+            var index = document.querySelector('button[onclick="updateFlashcard()"]').getAttribute('data-index');
+
+            // Get the new values from the form
+            var question = document.getElementById('question').value;
+            var answer = document.getElementById('answer').value;
+            var personalConnection = document.getElementById('personalConnection').value;
+
+            // Update the flashcard object
+            flashcards[index].question = question;
+            flashcards[index].answer = answer;
+            flashcards[index].personalConnection = personalConnection;
+
+            // Display the flashcards
+            displayFlashcards();
+
+            // Clear the form
+            document.getElementById('flashcardForm').reset();
+        }
+    </script>
+
+</body>
+</html>
