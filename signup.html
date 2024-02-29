@@ -103,6 +103,13 @@
                 return false;
             }
     
+            // Check phone number format (only digits)
+            var phoneRegex = /^[0-9]+$/;
+            if (!phoneRegex.test(phoneNumber)) {
+                alert('Phone number should contain only digits.');
+                return false;
+            }
+    
             // Check email format
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
@@ -122,7 +129,9 @@
             // If all validations pass, submit the form
             this.submit();
         });
-    </script>
+    </script>    
+
+    
     
     
 </body>
