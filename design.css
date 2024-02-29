@@ -11,8 +11,8 @@ body {
    
 }
 
+
 header {
-    background-image: url('blackback.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -21,6 +21,20 @@ header {
     padding: 1em;
     text-align: center;
 }
+
+.logo-container {
+    background-color: white;
+    display: inline-flex; /* Change from inline-block to inline-flex */
+    align-items: center; /* Align the logo vertically */
+    border-radius: 10px;
+}
+
+
+.logo-container img {
+    width: 300px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
 
 main {
     max-width: 800px;
@@ -54,7 +68,6 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 10px;
-    margin: 5px;
 }
 
 button:hover {
