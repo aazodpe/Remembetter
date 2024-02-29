@@ -173,3 +173,27 @@ button:hover {
     background-color: #0056b3;
     /* Darker blue */
 }
+
+/* Style the table */
+#flashcardTable {
+    width: 100%; /* Full-width */
+    border-collapse: collapse; /* Collapse borders */
+    margin: 15px 0; /* Add margin */
+}
+
+/* Style the table header */
+#flashcardTable thead {
+    background-color: #f2f2f2; /* Grey background */
+}
+
+/* Style the table cells */
+#flashcardTable th, #flashcardTable td {
+    border: 1px solid #ddd; /* Add a border */
+    padding: 8px; /* Add padding */
+    text-align: left; /* Left-align text */
+}
+
+/* Style the table rows */
+#flashcardTable tr:nth-child(even) {
+    background-color: #f2f2f2; /* Add a grey background on every even row */
+}

@@ -34,22 +34,19 @@
 
 
     <main>
-        <form id="flashcardForm">
-            <label for="question">What's the topic?</label>
-            <input type="text" id="question" name="question" required>
-
-            <label for="answer">What would you like to remember about it?</label>
-            <textarea id="answer" name="answer" rows="4" required></textarea>
-
-            <!-- Additional input box for personal connection -->
-            <label for="personalConnection">What's your personal connection to this topic?</label>
-            <textarea id="personalConnection" name="personalConnection" rows="2"></textarea>
-
-            <button type="button" onclick="createFlashcard()">Create Flashcard</button>
-        </form>
-
-        <!-- Display Flashcards -->
-        <div id="flashcards"></div>
+        <table id="flashcardTable">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Personal Connection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be added here dynamically -->
+            </tbody>
+        </table>
     </main>
 
     <script>

@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <a href="create.html"> <!-- Link to the Home page -->
-                <img src="remembetter(logo).png" alt="RememBetter Logo"> <!-- Logo Image -->
-            </a>
-        </div>
 
+
+
+    <header>
+        <h1>rememb(ett)er</h1>
+        <h4>A flashcard website</h4>
+        <a href="home.html">
+            <img src="remembetter(logo).png" alt="Home">
+        </a>
     </header>
+    
     <div class="navbar">
         <!-- The navbar content -->
-        <a href="create.html">Home</a>
+        <a href="home.html">Home</a>
         <a href="flashfilling.html">Read</a>
         <a href="update.html">Update</a>
         <a href="delete.html">Delete</a>
@@ -43,20 +46,6 @@
 
         <!-- Display Flashcards -->
         <div id="flashcards"></div>
-
-        <table id="flashcardTable">
-            <thead>
-                <tr>
-                    <th>Sr. No.</th>
-                    <th>Question</th>
-                    <th>Answer</th>
-                    <th>Personal Connection</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Table rows will be added here dynamically -->
-            </tbody>
-        </table>
     </main>
 
     <script>
