@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="design.css">
     <title>Flashcard Filling</title>
-
+    
 </head>
 
 <body>
     <header>
-        <h1>Flashcard Filling</h1>
+        <div class="logo-container">
+            <a href="create.html"> <!-- Link to the Home page -->
+                <img src="remembetter(logo).png" alt="RememBetter Logo"> <!-- Logo Image -->
+            </a>
+        </div>
+        <h2>Login</h2>
     </header>
     <!-- The navbar container -->
     <div class="navbar">
         <!-- The navbar content -->
-        <a href="home.html">Home</a>
+        <a href="create.html">Home</a>
         <a href="flashfilling.html">Read</a>
         <a href="update.html">Update</a>
         <a href="delete.html">Delete</a>
@@ -27,7 +32,7 @@
     </div>
 
     <!-- The CSS code -->
-
+    
 
 
     <div class="login-page">
@@ -53,7 +58,7 @@
                                 </div>
                                 <div class="form-group">
                                     <a href="signup.html">Sign Up</a>
-                                    <p class="text-center"><a id="forgot-password">Forgot your password?</a></p>
+                                    <p class="text-center"><a href="#">Forgot your password?</a></p>
                                 </div>
                             </form>
                         </div>
@@ -65,15 +70,6 @@
 
 
     <script>
-        document.getElementById('forgot-password').addEventListener('click', function (event) {
-            event.preventDefault();
-            var newPassword = prompt("Please enter your new password:");
-            if (newPassword) {
-                // Here you can add the code to update the user's password
-                console.log("New password: " + newPassword);
-            }
-        });
-        
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
